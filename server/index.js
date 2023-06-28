@@ -94,87 +94,87 @@ app.post('/', urlencodedParser, async function (request, response) {
         //Функция для создания доп колонок с вычисляемыми формулами
         const getNewColunm = function (column_name, position, formula) {
             arrData[0][position] = column_name;
-            //начиная с 6 строчки
-            let G = 2;
+            //начиная с 3 строчки
+            let G = 3;
             for (f = 1; f < arrData.length; f++) {
                 arrData[f][position] = `${formula}${G}`;
                 G++
             }
         }
         // OTS
-        getNewColunm('OTS', 45, '=$C$4/1000/100*G')
+        getNewColunm('OTS', 47, '=$B$1/1000/100*G')
 
         // Unique Reach (тыс)
-        getNewColunm('Unique Reach (тыс)', 46, '=$C$4/1000*Z')
+        getNewColunm('Unique Reach (тыс)', 48, '=$B$1/1000*Z')
 
         // Reach1+ (тыс)
-        getNewColunm('Reach1+ (тыс)', 47, '=$C$4/1000*AA')
+        getNewColunm('Reach1+ (тыс)', 49, '=$B$1/1000*AA')
 
         //Reach2+ (тыс)	
-        getNewColunm('Reach2+ (тыс)	', 48, '=$C$4/1000*AB')
+        getNewColunm('Reach2+ (тыс)	', 50, '=$B$1/1000*AB')
 
         //Reach3+ (тыс)	
-        getNewColunm('Reach3+ (тыс)', 49, '=$C$4/1000*AC')
+        getNewColunm('Reach3+ (тыс)', 51, '=$B$1/1000*AC')
 
         //Reach4+ (тыс)	
-        getNewColunm('Reach4+ (тыс)', 50, '=$C$4/1000*AD')
+        getNewColunm('Reach4+ (тыс)', 52, '=$B$1/1000*AD')
 
         //Reach5+ (тыс)	
-        getNewColunm('Reach5+ (тыс)', 51, '=$C$4/1000*AE')
+        getNewColunm('Reach5+ (тыс)', 53, '=$B$1/1000*AE')
 
         //Reach6+ (тыс)	
-        getNewColunm('Reach6+ (тыс)', 52, '=$C$4/1000*AF')
+        getNewColunm('Reach6+ (тыс)', 54, '=$B$1/1000*AF')
 
         //Reach7+ (тыс)	
-        getNewColunm('Reach7+ (тыс)', 53, '=$C$4/1000*AG')
+        getNewColunm('Reach7+ (тыс)', 55, '=$B$1/1000*AG')
 
         //Reach8+ (тыс)	
-        getNewColunm('Reach8+ (тыс)', 54, '=$C$4/1000*AH')
+        getNewColunm('Reach8+ (тыс)', 56, '=$B$1/1000*AH')
 
         //Reach9+ (тыс)	
-        getNewColunm('Reach9+ (тыс)', 55, '=$C$4/1000*AI')
+        getNewColunm('Reach9+ (тыс)', 57, '=$B$1/1000*AI')
 
         //Reach10+ (тыс)	
-        getNewColunm('Reach10+ (тыс)', 56, '=$C$4/1000*AJ')
+        getNewColunm('Reach10+ (тыс)', 58, '=$B$1/1000*AJ')
 
         //Reach11+ (тыс)	
-        getNewColunm('Reach11+ (тыс)', 57, '=$C$4/1000*AK')
+        getNewColunm('Reach11+ (тыс)', 59, '=$B$1/1000*AK')
 
         //Reach12+ (тыс)	
-        getNewColunm('Reach12+ (тыс)', 58, '=$C$4/1000*AL')
+        getNewColunm('Reach12+ (тыс)', 60, '=$B$1/1000*AL')
 
         //Reach13+ (тыс)	
-        getNewColunm('Reach13+ (тыс)', 59, '=$C$4/1000*AM')
+        getNewColunm('Reach13+ (тыс)', 61, '=$B$1/1000*AM')
 
         //Reach14+ (тыс)	
-        getNewColunm('Reach14+ (тыс)', 60, '=$C$4/1000*AN')
+        getNewColunm('Reach14+ (тыс)', 62, '=$B$1/1000*AN')
 
         //Reach15+ (тыс)	
-        getNewColunm('Reach15+ (тыс)', 61, '=$C$4/1000*AO')
+        getNewColunm('Reach15+ (тыс)', 63, '=$B$1/1000*AO')
 
         //Reach16+ (тыс)
-        getNewColunm('Reach16+ (тыс)', 62, '=$C$4/1000*AP')
+        getNewColunm('Reach16+ (тыс)', 64, '=$B$1/1000*AP')
 
         //Reach17+ (тыс)	
-        getNewColunm('Reach17+ (тыс)', 63, '=$C$4/1000*AQ')
+        getNewColunm('Reach17+ (тыс)', 65, '=$B$1/1000*AQ')
 
         //Reach18+ (тыс)	
-        getNewColunm('Reach18+ (тыс)', 64, '=$C$4/1000*AR')
+        getNewColunm('Reach18+ (тыс)', 66, '=$B$1/1000*AR')
 
         //Reach19+ (тыс)	
-        getNewColunm('Reach19+ (тыс)', 65, '=$C$4/1000*AS')
+        getNewColunm('Reach19+ (тыс)', 67, '=$B$1/1000*AS')
 
         //Reach20+ (тыс)	
-        getNewColunm('Reach20+ (тыс)', 66, '=$C$4/1000*AT')
+        getNewColunm('Reach20+ (тыс)', 68, '=$B$1/1000*AT')
 
-        // console.log(TargetAudienceSize);
+        console.log(TargetAudienceSize);
 
 
         // Write row(s) to spreadsheet
         await googleSheets.spreadsheets.values.append({
             auth,
             spreadsheetId,
-            range: "свод 1!A:AU",
+            range: "свод 1!A:BQ",
             valueInputOption: "USER_ENTERED",
             resource: {
                 values: arrData
