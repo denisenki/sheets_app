@@ -19,7 +19,7 @@ app.get("/", function (request, response) {
     response.sendFile(__dirname + "/index.html");
 });
 
-app.post('/create', function (request, response) {
+app.post('/create', urlencodedParser, function (request, response) {
     response.send('Создание сводной завершено')
 
 })
