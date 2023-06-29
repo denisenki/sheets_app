@@ -5,10 +5,6 @@ const splitString = require('./logic')
 const path = require('path')
 
 app.use(cors())
-// const auth = new google.auth.GoogleAuth({
-//     keyFile: "credentials.json",
-//     scopes: "https://www.googleapis.com/auth/spreadsheets",
-// });
 
 const app = express()
 app.use(express.static('public'))
@@ -23,9 +19,7 @@ app.get("/", function (request, response) {
     response.sendFile(__dirname + "/index.html");
 });
 
-app.post('/', urlencodedParser, async function (request, response) {
-    if (!request.body) return response.sendStatus(400);
-    // console.log(request.body);
+app.post('/create', function (request, response) {
     response.send('Создание сводной завершено')
 
 })
