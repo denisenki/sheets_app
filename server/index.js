@@ -1,20 +1,27 @@
 const express = require('express')
+const cors = require('cors')
 const { google } = require('googleapis')
 const splitString = require('./logic')
 const path = require('path')
 
+app.use(cors())
+const auth = new google.auth.GoogleAuth({
+    keyFile: "credentials.json",
+    scopes: "https://www.googleapis.com/auth/spreadsheets",
+});
+
 const app = express()
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static('public'))
 app.use(express.json())
+// app.use(function (err, req, res, next) {
+//     console.error(err.stack);
+//     res.status(500).send('Something broke!');
+// });
 const port = 3000
 
 // создаем парсер для данных application/x-www-form-urlencoded
 const urlencodedParser = express.urlencoded({ extended: false });
 
-const auth = new google.auth.GoogleAuth({
-    keyFile: "credentials.json",
-    scopes: "https://www.googleapis.com/auth/spreadsheets",
-});
 
 
 let sheet_id = '';
