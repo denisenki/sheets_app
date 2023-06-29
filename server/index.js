@@ -20,7 +20,7 @@ app.get("/", function (request, response) {
 });
 
 app.post('/create', urlencodedParser, function (request, response) {
-    response.sendFile(__dirname + "/index.html");
+    response.sendFile(__dirname + "/index2.html");
 
 })
 
