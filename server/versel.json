@@ -1,4 +1,9 @@
 {
+    "routes": [
+    { "src": "/api", "dest": "/my-api.js" },
+    { "src": "/create", "methods": ["POST"], "dest": "/index.js" },
+    { "src": "/.*", "dest": "https://sheets-app.vercel.app/" }
+  ],
     "headers": [
         {
             "source": "/api/(.*)",
